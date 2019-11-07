@@ -10,7 +10,7 @@ RUN apt update && \
 RUN wget -q -O /gef/update-trinity.sh https://raw.githubusercontent.com/hugsy/stuff/master/update-trinity.sh && \
   sed -i 's/sudo make install install3/make install3/g' /gef/update-trinity.sh
 
-RUN chmod a+rx /gef/update-trinity.sh && /gef/update-trinity.sh
+RUN chmod a+rx /gef/update-trinity.sh && /gef/update-trinity.sh && rm -f /gef/update-trinity.sh
 
 RUN wget -q -O /gef/.gdbinit-gef.py https://github.com/hugsy/gef/raw/master/gef.py
 RUN wget -q -O /gef/simple.c https://raw.githubusercontent.com/hugsy/gef-docker/master/simple.c
