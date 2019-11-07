@@ -17,7 +17,8 @@ RUN chmod a+rx /gef/update-trinity.sh && /gef/update-trinity.sh && rm -f /gef/up
 RUN wget -q -O /gef/.gdbinit-gef.py https://github.com/hugsy/gef/raw/master/gef.py
 RUN wget -q -O /gef/simple.c https://raw.githubusercontent.com/hugsy/gef-docker/master/simple.c
 RUN gcc -O0 -ggdb -o /gef/simple /gef/simple.c 
-RUN git clone https://github.com/google/nsjail /gef/nsjail
+RUN git clone https://github.com/google/nsjail /tmp/nsjail
+RUN cd /tmp/nsjail && make && mv /tmp/nsjail/nsjail /gef/nsjail && rm -rf -- /tmp/nsjail
 
 RUN apt remove -y --purge wget git make gcc g++ cmake pkg-config && \
   apt autoremove -y --purge && apt autoclean -y && \
@@ -33,4 +34,4 @@ RUN cd /gef/nsjail && make && mv /gef/nsjail/nsjail /gef/jail && rm -rf -- /gef/
 
 RUN echo 'source /gef/.gdbinit-gef.py' > /gef/.gdbinit
 
-ENTRYPOINT [ "/gef/jail", "-Mo", "--cgroup_pids_max", "3", "--cwd", "/gef", "--time_limit", "300", "--user", "99999", "--group", "99999", "-R" "/lib", "-R", "/lib64", "-R", "/usr/lib", "-R", "/usr/bin/gdb", "-R", "/usr/share", "-R", "/bin", "--keep_caps", "--", "/usr/bin/gdb", "-q", "/gef/simple" ]
+ENTRYPOINT [ "/gef/nsjail", "-Mo", "--cgroup_pids_max", "3", "--cwd", "/gef", "--time_limit", "300", "--user", "99999", "--group", "99999", "-R" "/lib", "-R", "/lib64", "-R", "/usr/lib", "-R", "/usr/bin/gdb", "-R", "/usr/share", "-R", "/bin", "--keep_caps", "--", "/usr/bin/gdb", "-q", "/gef/simple" ]
