@@ -32,4 +32,4 @@ RUN git clone https://github.com/google/nsjail /gef/nsjail && cd /gef/nsjail && 
 
 RUN echo 'source /gef/.gdbinit-gef.py' > /gef/.gdbinit
 
-ENTRYPOINT [ "/gef/jail", "-Mo", "--user", "99999", "--group", "99999", "-R" "/lib", "-R", "/lib64", "-R", "/usr/lib", "-R", "/usr/bin/gdb", "-R", "/usr/share", "-R", "/bin", "--keep_caps", "--", "/usr/bin/gdb", "-q", "/gef/simple" ]
+ENTRYPOINT [ "/gef/jail", "-Mo", "--cgroup_pids_max", "3", "--cwd", "/gef", "--time_limit", "300", "--user", "99999", "--group", "99999", "-R" "/lib", "-R", "/lib64", "-R", "/usr/lib", "-R", "/usr/bin/gdb", "-R", "/usr/share", "-R", "/bin", "--keep_caps", "--", "/usr/bin/gdb", "-q", "/gef/simple" ]
