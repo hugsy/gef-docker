@@ -23,6 +23,8 @@ RUN chown gef:gef -R /gef
 
 USER gef
 
+RUN pip3 install --user ropper
+
 RUN echo 'source /gef/.gdbinit-gef.py' > /gef/.gdbinit
 
 ENTRYPOINT [ "gdb", "-q", "/gef/simple" ]
