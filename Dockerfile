@@ -13,7 +13,7 @@ RUN wget -q -O /gef/update-trinity.sh https://raw.githubusercontent.com/hugsy/st
 RUN chmod a+rx /gef/update-trinity.sh && /gef/update-trinity.sh
 
 RUN wget -q -O /gef/.gdbinit-gef.py https://github.com/hugsy/gef/raw/master/gef.py
-RUN wget -q -O /gef/simple.c https://github.com/hugsy/gef-docker/raw/master/simple.c
+RUN wget -q -O /gef/simple.c https://raw.githubusercontent.com/hugsy/gef-docker/master/simple.c
 RUN gcc -O0 -ggdb -o /gef/simple /gef/simple.c
 
 RUN apt remove -y --purge wget git make gcc g++ cmake pkg-config && \
