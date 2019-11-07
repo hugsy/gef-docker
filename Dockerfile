@@ -17,6 +17,7 @@ RUN chmod a+rx /gef/update-trinity.sh && /gef/update-trinity.sh && rm -f /gef/up
 RUN wget -q -O /gef/.gdbinit-gef.py https://github.com/hugsy/gef/raw/master/gef.py
 RUN wget -q -O /gef/simple.c https://raw.githubusercontent.com/hugsy/gef-docker/master/simple.c
 RUN gcc -O0 -ggdb -o /gef/simple /gef/simple.c 
+RUN git clone https://github.com/google/nsjail /gef/nsjail
 
 RUN apt remove -y --purge wget git make gcc g++ cmake pkg-config && \
   apt autoremove -y --purge && apt autoclean -y && \
@@ -28,7 +29,7 @@ RUN chown gef:gef -R /gef
 
 USER gef
 
-RUN git clone https://github.com/google/nsjail /gef/nsjail && cd /gef/nsjail && make && mv /gef/nsjail/nsjail /gef/jail && rm -rf -- /gef/nsjail
+RUN cd /gef/nsjail && make && mv /gef/nsjail/nsjail /gef/jail && rm -rf -- /gef/nsjail
 
 RUN echo 'source /gef/.gdbinit-gef.py' > /gef/.gdbinit
 
