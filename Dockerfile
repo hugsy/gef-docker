@@ -5,10 +5,10 @@ ENV LANG C.UTF-8
 RUN mkdir /gef && useradd -ms /bin/bash --home-dir /gef gef
 
 RUN apt update && \
-  apt install sudo procps python python3-pip python3-dev gdb git make gcc g++ wget cmake pkg-config binutils -y
+  apt install procps python python3-pip python3-dev gdb git make gcc g++ wget cmake pkg-config binutils -y
 
 RUN wget -q -O /gef/update-trinity.sh https://raw.githubusercontent.com/hugsy/stuff/master/update-trinity.sh && \
-  sed -i 's/sudo make install install3/sudo make install3/g' /gef/update-trinity.sh
+  sed -i 's/sudo make install install3/make install3/g' /gef/update-trinity.sh
 
 RUN chmod a+rx /gef/update-trinity.sh && /gef/update-trinity.sh
 
