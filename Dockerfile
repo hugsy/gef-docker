@@ -17,7 +17,8 @@ RUN wget -q -O /gef/simple.c https://raw.githubusercontent.com/hugsy/gef-docker/
 RUN gcc -O0 -ggdb -o /gef/simple /gef/simple.c
 
 RUN apt remove -y --purge wget git make gcc g++ cmake pkg-config && \
-  apt autoremove -y --purge && apt autoclean -y
+  apt autoremove -y --purge && apt autoclean -y && \
+  rm -fr -- /var/lib/apt/lists/* 
 
 RUN chown gef:gef -R /gef
 
@@ -27,4 +28,4 @@ RUN pip3 install --user ropper
 
 RUN echo 'source /gef/.gdbinit-gef.py' > /gef/.gdbinit
 
-ENTRYPOINT [ "gdb", "-q", "/gef/simple" ]
+ENTRYPOINT [ "/usr/bin/gdb", "-q", "/gef/simple" ]
