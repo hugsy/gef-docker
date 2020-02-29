@@ -28,6 +28,7 @@ RUN chown gef:gef -R /gef
 USER gef
 
 COPY gef-demo-intro.py /gef/
+COPY tips /gef/
 
 RUN echo 'source /gef/.gdbinit-gef.py' > /gef/.gdbinit
 RUN echo 'source /gef/gef-demo-intro.py' >> /gef/.gdbinit
