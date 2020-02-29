@@ -27,6 +27,9 @@ RUN chown gef:gef -R /gef
 
 USER gef
 
+COPY gef-demo-intro.py /gef/
+
 RUN echo 'source /gef/.gdbinit-gef.py' > /gef/.gdbinit
+RUN echo 'source /gef/gef-demo-intro.py' >> /gef/.gdbinit
 
 ENTRYPOINT [ "/usr/bin/gdb", "-q", "/gef/simple" ]
