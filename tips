@@ -1,0 +1,3 @@
+Most commands of GEF support TAB-completions: don't remember the exact command, start typing it then TAB for completion.
+GEF has a great documentation online, https://gef.readthedocs.io/ and you can always get help on the IRC channel: irc.freenode.net/##gef
+The repo GEF-Extra (https://github.com/hugsy/gef-extras) is an open repository to host 3rd scripts/features built on top of GEF.
