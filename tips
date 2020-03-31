@@ -4,3 +4,6 @@ The repo GEF-Extra (https://github.com/hugsy/gef-extras) is an open repository t
 Some video tutorials to discover how to use GEF's features are available on YouTube (https://tinyurl.com/tmpskuk)
 GEF-Extra has a WinDbg compatibility module, using the power of GEF to retrieve all your favorite WinDbg commands in GDB (https://github.com/hugsy/gef-extras/blob/master/scripts/windbg.py)
 The GEF command `pattern create/search` is 100% compatible with the `cyclic` function from pwntools, making it trivial to determine offsets at runtime.
+GEF is highly customizable: start making your own debugging setup using `gef config` (and remember to `gef save` it!)
+The GEF `ropper` command will mix the power of GEF to the great tool `ropper` to build proper ROP chains for your binary. Give it a try!
+You can build your own custom GDB commands leveraging all the useful primitives from GEF. Check out the docs at https://gef.readthedocs.io/en/master/api/.
