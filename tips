@@ -7,3 +7,8 @@ The GEF command `pattern create/search` is 100% compatible with the `cyclic` fun
 GEF is highly customizable: start making your own debugging setup using `gef config` (and remember to `gef save` it!)
 The GEF `ropper` command will mix the power of GEF to the great tool `ropper` to build proper ROP chains for your binary. Give it a try!
 You can build your own custom GDB commands leveraging all the useful primitives from GEF. Check out the docs at https://gef.readthedocs.io/en/master/api/.
+Capstone/Keystone/Unicorn engines can be optionally integrated to GEF. The result: a totally awesome experience!
+Want to practice some heap exploitation? Check out https://github.com/shellphish/how2heap and look at the `heap` commands from GEF!
+The `format-string-helper` will attempt to automatically detect pattern susceptible to format string attacks. Just run the command and continue your execution. It will alert you on possible exploitable scenario.
+The `heap-analysis-helper` will attempt to detect at runtime double-frees, use-after-frees and other traditional vulnerabilities when handling the heap.
+Think GEF is too much? You can disable it by commenting it in your ~/.gdbinit file, or delete gef.py to completely uninstall it! It's that simple!
