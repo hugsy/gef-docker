@@ -12,3 +12,4 @@ Want to practice some heap exploitation? Check out https://github.com/shellphish
 The `format-string-helper` will attempt to automatically detect pattern susceptible to format string attacks. Just run the command and continue your execution. It will alert you on possible exploitable scenario.
 The `heap-analysis-helper` will attempt to detect at runtime double-frees, use-after-frees and other traditional vulnerabilities when handling the heap.
 Think GEF is too much? You can disable it by commenting it in your ~/.gdbinit file, or delete gef.py to completely uninstall it! It's that simple!
+You can practice on all different kinds of binaries. Run `!ls /pwn` in the prompt to see them, and `file /pwn/<chosen_binary>` to load it.
