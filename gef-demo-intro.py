@@ -2,8 +2,9 @@ import random
 
 
 def random_tip_of_the_day():
-  tips = open("/gef/tips", "r").readlines()
-  return random.choice(tips)
+    tips = [x.strip()
+            for x in open("/gef/tips", "r").readlines() if len(x.strip())]
+    return random.choice(tips)
 
 
 print("=========================================")
@@ -31,11 +32,10 @@ print("""
 """)
 print("")
 
-
 print()
 print("Happy debugging!")
 print()
 
 print("Did you know?")
-print( random_tip_of_the_day() )
-
+print(random_tip_of_the_day())
+print("")

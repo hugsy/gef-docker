@@ -1,15 +1,21 @@
 Most commands of GEF support TAB-completions: don't remember the exact command, start typing it then TAB for completion.
-GEF has a great documentation online, https://gef.readthedocs.io/ and you can always get help on the IRC channel: irc.freenode.net/##gef
+GEF has a great documentation online, https://hugsy.github.io/gef/ and you can always get help on the Discord channel: https://discord.gg/HCS8Hg7
 The repository GEF-Extras (https://github.com/hugsy/gef-extras) is an open repository to host 3rd scripts/features built on top of GEF.
 Some video tutorials to discover how to use GEF's features are available on YouTube (https://tinyurl.com/tmpskuk)
-GEF-Extras has a WinDbg compatibility module, using the power of GEF to retrieve all your favorite WinDbg commands in GDB (https://github.com/hugsy/gef-extras/blob/master/scripts/windbg.py)
+GEF-Extras has a WinDbg compatibility module, using the power of GEF to retrieve all your favorite WinDbg commands in GDB (https://github.com/hugsy/gef-extras/blob/dev/scripts/windbg.py)
 The GEF command `pattern create/search` is 100% compatible with the `cyclic` function from pwntools, making it trivial to determine offsets at runtime.
 GEF is highly customizable: start making your own debugging setup using `gef config` (and remember to `gef save` it!)
-The GEF `ropper` command will mix the power of GEF to the great tool `ropper` to build proper ROP chains for your binary. Give it a try!
-You can build your own custom GDB commands leveraging all the useful primitives from GEF. Check out the docs at https://gef.readthedocs.io/en/master/api/.
-Capstone/Keystone/Unicorn engines can be optionally integrated to GEF. The result: a totally awesome experience!
+GEF is highly customizable: `theme` allows you to have the UI you really like
+Sometimes you just don't care about showing the context at every break. Disable it with `gef config context.enable 0`
+GDB has no hexdump mode! Thankfully, GEF fixes this cruel lack: see `hexdump byte/word/dword/qword`
+You can build your own custom GDB commands leveraging all the useful primitives from GEF. Check out the docs at https://hugsy.github.io/gef/api/.
 Want to practice some heap exploitation? Check out https://github.com/shellphish/how2heap and look at the `heap` commands from GEF!
-The `format-string-helper` will attempt to automatically detect pattern susceptible to format string attacks. Just run the command and continue your execution. It will alert you on possible exploitable scenario.
-The `heap-analysis-helper` will attempt to detect at runtime double-frees, use-after-frees and other traditional vulnerabilities when handling the heap.
+The `format-string-helper` command will attempt to automatically detect pattern susceptible to format string attacks. Just run the command and continue your execution. It will alert you on possible exploitable scenario.
+The `heap-analysis-helper` command will attempt to detect at runtime double-frees, use-after-frees and other traditional vulnerabilities when handling the heap.
 Think GEF is too much? You can disable it by commenting it in your ~/.gdbinit file, or delete gef.py to completely uninstall it! It's that simple!
 You can practice on all different kinds of binaries. Run `!ls /pwn` in the prompt to see them, and `file /pwn/<chosen_binary>` to load it.
+At any point during debugging, the `process-status` command will display a comprehensive status of what your process is doing.
+`pcustom` is an incredibly powerful command allowing to dynamically reconstruct structures.
+Aliasing is a convenient way to be lazy for long commands frequently typed: check out how `aliases` makes it much easier.
+It is always a good thing to check the security properties of a binary before rushing into its pwnage. Use `checksec` to help you for that.
+GEF doesn't just work locally, but remotely also: use `gef-remote` to massively improve GDB capacity when debugging remote processes.
