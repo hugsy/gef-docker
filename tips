@@ -19,6 +19,6 @@ At any point during debugging, the `process-status` command will display a compr
 Aliasing is a convenient way to be lazy for long commands frequently typed: check out how `aliases` makes it much easier.
 It is always a good thing to check the security properties of a binary before rushing into its pwnage. Use `checksec` to help you for that.
 GEF doesn't just work locally, but remotely also: use `gef-remote` to massively improve GDB capacity when debugging remote processes.
-Want more tips? Enter `gef-tips` to print new tips for GEF!
+Want more tips? Enter `gef-tip` to print new tips for GEF!
 Need a quick exploit skeleton based on your current session info? Use the `skel` command from GEF-Extras
 Sometimes visualization goes a long way for heap exploitation. Try the `visualize-libc-heap` in GEF-Extras!
