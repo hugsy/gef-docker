@@ -1,10 +1,24 @@
 import random
+import gdb
 
+from typing import List
 
 def random_tip_of_the_day():
     tips = [x.strip()
             for x in open("/gef/tips", "r").readlines() if len(x.strip())]
     return random.choice(tips)
+
+@register
+class TipsOfTheDayCommand(GenericCommand):
+    """Template of a new command."""
+    _cmdline_ = "gef-tip"
+    _syntax_ = f"{_cmdline_:s}"
+    
+    def do_invoke(self, argv: List[str]):
+        print("Did you know?")
+        print(random_tip_of_the_day())
+        print("")
+        return
 
 
 print("=========================================")
@@ -36,6 +50,4 @@ print()
 print("Happy debugging!")
 print()
 
-print("Did you know?")
-print(random_tip_of_the_day())
-print("")
+gdb.execute("gef-tip")
