@@ -1,37 +1,44 @@
 import random
-import gdb
+import pathlib
 
 from typing import List
 
-def random_tip_of_the_day():
-    tips = [x.strip()
-            for x in open("/gef/tips", "r").readlines() if len(x.strip())]
-    return random.choice(tips)
+# TIPS_FILEPATH = pathlib.Path("/gef/tips.txt")
+TIPS_FILEPATH = pathlib.Path("/home/hugsy/code/gef-docker/tips.txt")
+TIPS = [
+    x.strip()
+    for x in TIPS_FILEPATH.open("r", encoding="utf-8").readlines()
+    if len(x.strip())
+]
+
 
 @register
 class TipsOfTheDayCommand(GenericCommand):
     """Template of a new command."""
+
     _cmdline_ = "gef-tip"
     _syntax_ = f"{_cmdline_:s}"
-    
-    def do_invoke(self, argv: List[str]):
-        print("Did you know?")
-        print(random_tip_of_the_day())
-        print("")
+
+    def do_invoke(self, _: List[str]):
+        info("Did you know?\n  " + random.choice(TIPS) + "\n")
         return
 
 
-print("=========================================")
-print("Welcome to the online demo version of GEF")
-print("=========================================")
+clear_screen()
 
-print()
-print("""
- _______________________________________________________________________
-{ To start debugging, simply type: start                                }
-{ To view the help menu, simply type: gef                               }
-{ To view/modify the current GEF configuration, simply type: gef config }
- ------------------------------------------------------------------------
+gef_print("=========================================")
+gef_print("Welcome to the online demo version of GEF")
+gef_print("=========================================")
+
+gef_print()
+gef_print(
+    """
+ ________________________________________________________________________
+{ To start debugging, simply type: start                                 }
+{ To view the help menu, simply type: gef                                }
+{ To view/modify the current GEF configuration, simply type: gef config  }
+{ Want more tips: gef-tip                                                }
+ -------------------------------------------------------------------------
  \\
   \\
      __
@@ -43,11 +50,10 @@ print("""
     || ||
     |\\_/|
     \\___/
-""")
-print("")
 
-print()
-print("Happy debugging!")
-print()
+"""
+)
 
-gdb.execute("gef-tip")
+ok("Happy debugging!\n")
+
+TipsOfTheDayCommand().do_invoke("")

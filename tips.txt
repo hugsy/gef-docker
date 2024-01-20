@@ -21,4 +21,4 @@ It is always a good thing to check the security properties of a binary before ru
 GEF doesn't just work locally, but remotely also: use `gef-remote` to massively improve GDB capacity when debugging remote processes.
 Want more tips? Enter `gef-tip` to print new tips for GEF!
 Need a quick exploit skeleton based on your current session info? Use the `skel` command from GEF-Extras
-Sometimes visualization goes a long way for heap exploitation. Try the `visualize-libc-heap` in GEF-Extras!
+Sometimes visualization goes a long way for heap exploitation. Try the `visualize-libc-heap-chunks` in GEF-Extras!
