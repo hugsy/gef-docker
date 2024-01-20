@@ -2,7 +2,7 @@ Most commands of GEF support TAB-completions: don't remember the exact command, 
 GEF has a great documentation online, https://hugsy.github.io/gef/ and you can always get help on the Discord channel: https://discord.gg/HCS8Hg7
 The repository GEF-Extras (https://github.com/hugsy/gef-extras) is an open repository to host 3rd scripts/features built on top of GEF.
 Some video tutorials to discover how to use GEF's features are available on YouTube (https://tinyurl.com/tmpskuk)
-GEF-Extras has a WinDbg compatibility module, using the power of GEF to retrieve all your favorite WinDbg commands in GDB (https://github.com/hugsy/gef-extras/blob/dev/scripts/windbg.py)
+GEF-Extras has a WinDbg compatibility module, using the power of GEF to retrieve all your favorite WinDbg commands in GDB (https://github.com/hugsy/gef-extras/blob/main/scripts/windbg.py)
 The GEF command `pattern create/search` is 100% compatible with the `cyclic` function from pwntools, making it trivial to determine offsets at runtime.
 GEF is highly customizable: start making your own debugging setup using `gef config` (and remember to `gef save` it!)
 GEF is highly customizable: `theme` allows you to have the UI you really like
@@ -22,3 +22,4 @@ GEF doesn't just work locally, but remotely also: use `gef-remote` to massively 
 Want more tips? Enter `gef-tip` to print new tips for GEF!
 Need a quick exploit skeleton based on your current session info? Use the `skel` command from GEF-Extras
 Sometimes visualization goes a long way for heap exploitation. Try the `visualize-libc-heap-chunks` in GEF-Extras!
+GEF and GEF-Extras are before anything community-driven! Don't hesitate to contribute!
