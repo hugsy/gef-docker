@@ -19,7 +19,7 @@ RUN bash -c "$(wget -q https://github.com/hugsy/gef/raw/main/scripts/gef.sh -O -
 RUN bash -c "$(wget -q https://github.com/hugsy/gef/raw/main/scripts/gef-extras.sh -O -)"
 
 COPY gef-demo-intro.py /gef/
-COPY tips /gef/
+COPY tips.txt /gef/
 
 RUN echo 'source /gef/gef-demo-intro.py' >> /gef/.gdbinit
 

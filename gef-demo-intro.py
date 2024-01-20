@@ -3,8 +3,7 @@ import pathlib
 
 from typing import List
 
-# TIPS_FILEPATH = pathlib.Path("/gef/tips.txt")
-TIPS_FILEPATH = pathlib.Path("/home/hugsy/code/gef-docker/tips.txt")
+TIPS_FILEPATH = pathlib.Path(__file__).parent / "tips.txt"
 TIPS = [
     x.strip()
     for x in TIPS_FILEPATH.open("r", encoding="utf-8").readlines()
